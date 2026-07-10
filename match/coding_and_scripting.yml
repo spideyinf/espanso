@@ -1,0 +1,133 @@
+matches:
+  - trigger: "'ytspeed"
+    replace: 'document.getElementsByTagName("video")[0].playbackRate = 2.5'
+    word: true
+  - triggers: ["'binsh", "'#!"]
+    replace: '#!/bin/sh'
+    word: true
+  - trigger: "'binpy"
+    replace: '#!/usr/bin/env python3'
+    word: true
+  - trigger: '//al' # This is for code reviews
+    replace: '// [adamlearns]'
+    word: true
+  - trigger: '#al' # This is for code reviews
+    replace: '# [adamlearns]'
+    word: true
+  - trigger: "'ned"
+    replace: 'NODE_ENV=development'
+    word: true
+  - trigger: "'favicon"
+    replace: 'document.querySelector(''link[rel*="icon"]'').href = "//via.placeholder.com/32/F00";'
+    word: true
+  - trigger: "'etoday"
+    replace: '!editcom today {{day}} - Adam is'
+    word: true
+    vars:
+      - name: day
+        type: date
+        params:
+          format: '%A'
+  - trigger: "'etenets"
+    replace: "!editcom today {{day}} - Adam is reviewing his tenets: https://docs.google.com/document/d/1jwhwMt6bxpuHGxNikRtsKTmkwyFVJsDqvgO3k_-1YLA/edit#heading=h.cpeolxcljhvr . This process takes place every week (watch this video for more information: https://www.youtube.com/watch?v=JNCbm94uIKI ) He'll update this command when the review is done."
+    word: true
+    vars:
+      - name: day
+        type: date
+        params:
+          format: '%A'
+  - trigger: "'gpom"
+    replace: 'git pull origin main --rebase'
+    word: true
+  - trigger: "'diffstaged"
+    replace: 'git diff --staged'
+    word: true
+  - trigger: "'gsm"
+    replace: 'git switch main && git pull'
+    word: true
+  - trigger: "'gitgrep"
+    replace: 'git rev-list --all | xargs git grep'
+    word: true
+  - trigger: "'sso"
+    replace: 'site:stackoverflow.com'
+    word: true
+  - trigger: "'src"
+    replace: 'site:reddit.com'
+    word: true
+  - trigger: "'sgh"
+    replace: 'site:github.com'
+    word: true
+  - trigger: "'gomain"
+    replace: "package main\nimport \"fmt\"\nfunc main() {\n    fmt.Println(\"hello world\")\n}"
+    word: true
+  - trigger: "'gotest"
+    replace: "import (\n \"testing\"\n \"github.com/google/go-cmp/cmp\"\n )\n \n func TestResultItemsToJSON(t *testing.T) {\n testDefinitions := []struct {\n testName  string\n input     string\n want      string\n wantError bool\n }{\n {\n testName: \"capitalized string\",\n input:    \"HELLO WORLD\",\n want:     \"howdy\",\n },\n {\n testName:  \"improper string\",\n input:     \"(hello)\",\n wantError: true,\n },\n }\n \n for _, tc := range testDefinitions {\n t.Run(tc.testName, func(t *testing.T) {\n got, err := functionToTest(tc.input)\n \n if err != nil {\n if !tc.wantError {\n t.Fatalf(\"functionToTest got err (%v), want success\", err)\n }\n return\n }\n \n if err == nil && tc.wantError {\n t.Fatalf(\"functionToTest got success, want error\")\n }\n \n if diff := cmp.Diff(got, tc.want); diff != \"\" {\n t.Errorf(\"functionToTest diff (-want +got):\\n%s\", diff)\n }\n })\n }\n }\n"
+    word: true
+  - trigger: "'dockerrun"
+    replace: 'docker run --entrypoint /bin/bash -it someimage'
+    word: true
+  - trigger: "'aliask"
+    replace: 'alias k=kubectl'
+    word: true
+  - trigger: "'l3"
+    replace: 'localhost:3000'
+    word: true
+  - trigger: "'mref"
+    replace: '([reference]({{clipboard}}))'
+    word: true
+    vars:
+      - name: 'clipboard'
+        type: 'clipboard'
+
+  # Pete's commands
+  - trigger: "'yb"
+    replace: 'yarn build'
+    word: true
+  - trigger: "'yk"
+    replace: 'yarn start:dev:macos'
+    word: true
+  - trigger: "'ysk"
+    replace: 'yarn start:dev:macos'
+    word: true
+  - trigger: "prop'"
+    replace: '...(__condition__ && { __key__: __value__ }),'
+    word: true
+  - trigger: "'c"
+    replace: 'claude'
+    word: true
+  - trigger: "'st"
+    replace: 'skip test check for this after the implementation'
+    word: true
+  - trigger: "'dn"
+    replace: 'do not modify the code'
+    word: true
+  - trigger: "'rmc"
+    replace: 'Remove all console.log, all good for now'
+    word: true
+  - trigger: "'absimport"
+    replace: 'Use the absolute import path for these, starting with @'
+    word: true
+  - trigger: "'wswa"
+    replace: 'ws kwiff-web-app'
+    word: true
+  - trigger: "'wsbo"
+    replace: 'ws kwiff-backoffice'
+    word: true
+  - trigger: "'wsa"
+    replace: 'ws AndroWeb-UI'
+    word: true
+  - trigger: "'wsp"
+    replace: 'ws AdromedaPortal'
+    word: true
+  - trigger: "'wsk"
+    replace: 'ws Androweb-Kiosk'
+    word: true
+  - trigger: '`c'
+    replace: 'git checkout {{clipboard}}'
+    word: true
+    vars:
+      - name: 'clipboard'
+        type: 'clipboard'
+  - trigger: '`cc'
+    replace: 'git commit -m "$|$"'
+    word: true
