@@ -104,6 +104,15 @@ matches:
   - trigger: "'rmc"
     replace: 'Remove all console.log, all good for now'
     word: true
+  - trigger: "'sum"
+    replace: 'Summarize the ACs for of this scope via markdown checkbox, keep it short and concise from what we have done'
+    word: true
+  - trigger: "'dnc"
+    replace: 'Do not commit it yet'
+    word: true
+  - trigger: "'mergem"
+    replace: 'Merge main into this and resolve all conflicts if any, make sure the scope of this branch is properly met'
+    word: true
   - trigger: "'absimport"
     replace: 'Use the absolute import path for these, starting with @'
     word: true
